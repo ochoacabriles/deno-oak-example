@@ -3,6 +3,11 @@ export type ProductToAdd = {
   price: number;
 }
 
+export type ProductToUpdate = {
+  name: string;
+  price: number;
+}
+
 export type Product = ProductToAdd & {
   _id: { $oid: string },
 };
