@@ -1,4 +1,10 @@
-import { addProductController, findProductController, listProductsController, updateProductController, deleteProductsController } from "../controllers/products.ts";
+import {
+  addProductController,
+  deleteProductsController,
+  findProductController,
+  listProductsController,
+  updateProductController,
+} from "../controllers/products.ts";
 import { Context, helpers } from "../deps.ts";
 
 export const findProduct = async (ctx: Context) => {
@@ -24,12 +30,12 @@ export const createProduct = async (ctx: Context) => {
   ctx.response.status = 201;
 };
 
-export const updateProduct = async(ctx: Context) => {
+export const updateProduct = async (ctx: Context) => {
   const { productId } = helpers.getQuery(ctx, { mergeParams: true });
   const { name, price } = await ctx.request.body().value;
-  const productToUpdate = {name, price}
+  const productToUpdate = { name, price };
 
-  const product = await findProductController(productId)
+  const product = await findProductController(productId);
   if (!product) {
     ctx.response.status = 404;
     ctx.response.body = { message: "Product not found" };
@@ -44,9 +50,7 @@ export const updateProduct = async(ctx: Context) => {
     ctx.response.body = { message: "Error updating product" };
     ctx.response.status = 500;
   }
-
-}
-
+};
 
 export const deleteProducts = async (ctx: Context) => {
   try {
