@@ -30,3 +30,18 @@ export const addProductController = async (product: ProductToAdd) => {
 };
 
 export const findProductController = (productId: string) => productsCollection.findOne({ _id: new ObjectId(productId) });
+
+
+export const updateProductController = async (productId: string, name: string, price: number) => {
+  const result = await productsCollection.updateOne(
+    { _id: new ObjectId(productId) },
+    { $set: { name: name, price: price } }
+  );
+  return result;
+}
+ 
+
+export const deleteProductController = async (productId: string) => { 
+  const result = await productsCollection.deleteOne({ _id: new ObjectId(productId) });
+  return result; 
+}
