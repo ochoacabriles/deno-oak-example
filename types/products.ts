@@ -6,3 +6,7 @@ export type ProductToAdd = {
 export type Product = ProductToAdd & {
   _id: { $oid: string },
 };
+
+export type resp = {
+  
+}
