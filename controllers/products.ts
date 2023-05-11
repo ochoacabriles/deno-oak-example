@@ -6,7 +6,7 @@ import { Product, ProductToAdd, ProductToUpdate } from "../types/products.ts";
 const client = new MongoClient();
 
 try {
-  await client.connect(mongoUri);
+  await client.connect("mongodb+srv://coderhouse:coderhouse123@cluster0.xvejx.gcp.mongodb.net/test");
   console.log("Connected to Mongo");
 } catch (err) {
   console.error(err);
