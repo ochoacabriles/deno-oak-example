@@ -1,6 +1,6 @@
 export type ProductToAdd = {
-  name: string;
-  price: number;
+  name: string,
+  price: number
 }
 
 export type Product = ProductToAdd & {
